@@ -1,5 +1,7 @@
 let myLibrary =[];
 
+/* book object creator */
+
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -19,58 +21,25 @@ function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
 
-const harryPotter = new Book("Harry Potter", "J. K. Rowling", "766", true);
-addBookToLibrary(harryPotter);
-const dune = new Book("Dune", "Frank Herbet", "412", true);
-addBookToLibrary(dune);
-const theHobbit = new Book("The Hobbit", "J. R. R. Tolkien", "310", true);
-addBookToLibrary(theHobbit);
-const annaKarenina = new Book("Anna Karenina", "Leo Tolstoy", "800", false);
-addBookToLibrary(annaKarenina);
-
-function postBook() {
-    myLibrary.forEach(book => {
-        const card = document.createElement("div");
-        const bookInfo = document.createTextNode(book.info());
-        card.appendChild(bookInfo);
-        document.getElementById("library").appendChild(card);
-    })
+function postBook(book) {
+    const card = document.createElement("div");
+    const bookInfo = document.createTextNode(book.info());
+    card.appendChild(bookInfo);
+    document.getElementById("library").appendChild(card);
 };
 
+const btn = document.getElementById('addBook');
 
-/* function myFunction() {
-    myLibrary.forEach(book => {
-        const card = document.createElement("div");
 
-        const title = document.createElement("div");
-        card.appendChild(title);
+btn.addEventListener('click', () => {
+  const form = document.getElementById('form');
 
-        const texttitle = document.createTextNode(book.title);
-        title.appendChild(texttitle);
-
-        const author = document.createElement("div");
-        card.appendChild(author);
-
-        const textauthor = document.createTextNode(`author: ${book.author}`);
-        author.appendChild(textauthor);
-
-        const pages = document.createElement("div");
-        card.appendChild(pages);
-
-        const textpages = document.createTextNode(`pages: ${book.pages}`);
-        pages.appendChild(textpages);
-
-        const read = document.createElement("div");
-        card.appendChild(read);
-
-        let textread = " ";
-        if(book.read) {
-            textread = document.createTextNode(`Read`);
-        } else {
-            textread = document.createTextNode('Not read yet');
-        }
-        read.appendChild(textread);
-
-        document.getElementById("library").appendChild(card);
-    })
-} */
+  if (form.style.display === 'none') {
+    form.style.display = 'block';
+  } else {
+    form.style.display = 'none';
+    let book = new Book(title, author, pages, read);
+    addBookToLibrary(book);
+    postBook(book);
+  }
+});

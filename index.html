@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,6 +13,32 @@
     <p>Library</p>
 
     </div>
-    <button onclick="postBook()">Books</button>
+    <button id="addBook">+Book</button>
+
+    <form action="" id="form">
+        <div class="form-body">
+            <div class="form-title">
+                <label for="title">Book title:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="form-author">
+                <label for="author">Book author:</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div class="form-pages">
+                <label for="pages">Number of pages:</label>
+                <input type="number" id="pages" name="pages">
+            </div>
+            <div class="form-read">
+                <p>Status</p>
+                <input type="radio" id="yes" name="read">
+                <label for="yes">Read</label>
+
+                <input type="radio" id="no" name="read">
+                <label for="no">Not read</label>
+            </div>
+        </div>
+    </form>
 </body>
 </html>
+
