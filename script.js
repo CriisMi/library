@@ -9,10 +9,10 @@ function Book(title, author, pages, read) {
     this.read = read
 
     this.info = function(read) {
-        if(read) {
-            return `${title} by ${author}, ${pages}, read.`
+        if(this.read) {
+            return `${title} by ${author}, ${pages}, read.`;
         } else {
-            return `${title} by ${author}, ${pages}, not read yet.`
+            return `${title} by ${author}, ${pages}, not read yet.`;
         }
     }
 }
@@ -23,7 +23,7 @@ function addBookToLibrary(newBook) {
 }
 
 /* display library books */
-const displayBooks = myLibrary => {
+const displayBooks = () => {
     myLibrary.forEach(book => {
         const library = document.getElementById('library');
         const card = document.createElement('div');
@@ -32,7 +32,7 @@ const displayBooks = myLibrary => {
         bookInfo.appendChild(bookText);
         card.appendChild(bookInfo);
         deleteBtn(card);
-        statusBtn(card);
+        statusBtn(card, book);
         library.appendChild(card);
     })
 };
@@ -47,39 +47,45 @@ function deleteBtn(card) {
     delBtn.addEventListener('click', () =>{
         card.remove();
     });
-}
+};
 
 /* change read status btn to card */
-function statusBtn(card) {
+function statusBtn(card, book) {
     const statBtn = document.createElement('button');
     const statBtnText = document.createTextNode('Change Status');
     statBtn.appendChild(statBtnText);
     card.appendChild(statBtn);
 
     statBtn.addEventListener('click', () => {
-
+        book.changeStat();
+        console.log(book.read);
+        displayBooks();
     })
 }
 
+/* change read stat */
 Book.prototype.changeStat = function() {
-    this.
+    if(this.read) {
+        this.read = false;
+    } else {
+        this.read = true;
+    }
 }
 
-
 /* book examples */
-const book1 = new Book("Harry Potter", "J.K.R.", "850", true);
+const book1 = new Book("Harry Potter", "J.K.R.", "850", false);
 addBookToLibrary(book1);
 const book2 = new Book("Dune", "Frank Herbet", "600", true);
 addBookToLibrary(book2);
 const book3 = new Book("The Hobbit", "J.R.R. Tolkien", "295", true);
 addBookToLibrary(book3);
 
-displayBooks(myLibrary);
-
-const btn = document.getElementById('addBook');
+displayBooks();
 
 /* show form button */
-btn.addEventListener('click', () => {
+const forumBtn = document.getElementById('addBook');
+
+forumBtn.addEventListener('click', () => {
   const form = document.getElementById('form');
   if (form.style.display === 'none') {
     form.style.display = 'block';
