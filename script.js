@@ -9,12 +9,12 @@ function Book(title, author, pages, read) {
     this.read = read
 
     this.info = function() {
-        if(read) {
-            return `${title} by ${author}, ${pages}, read.`
-        } else {
-            return `${title} by ${author}, ${pages}, not read yet.`
-        }
+        return `${title} by ${author}, ${pages}, ${read}.`
     }
+}
+
+Book.prototype.read = function(read) {
+
 }
 
 /* add the book to the library */
@@ -32,6 +32,7 @@ const displayBooks = myLibrary => {
         bookInfo.appendChild(bookText);
         card.appendChild(bookInfo);
         deleteBtn(card);
+        statusBtn(card);
         library.appendChild(card);
     })
 };
@@ -48,12 +49,26 @@ function deleteBtn(card) {
     });
 }
 
+/* change read status btn to card */
+function statusBtn(card) {
+    const statBtn = document.createElement('button');
+    const statBtnText = document.createTextNode('Change Status');
+    statBtn.appendChild(statBtnText);
+    card.appendChild(statBtn);
+
+    statBtn.addEventListener('click', () => {
+
+    })
+}
+
+
+
 /* book examples */
 const book1 = new Book("Harry Potter", "J.K.R.", "850", true);
 addBookToLibrary(book1);
 const book2 = new Book("Dune", "Frank Herbet", "600", true);
 addBookToLibrary(book2);
-const book3 = new Book("The Hobbit", "J. R. R. Tolkien", " 400", true);
+const book3 = new Book("The Hobbit", "J.R.R. Tolkien", "295", true);
 addBookToLibrary(book3);
 
 displayBooks(myLibrary);
