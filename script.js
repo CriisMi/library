@@ -27,10 +27,6 @@ const displayBooks = myLibrary => {
     myLibrary.forEach(book => {
         const library = document.getElementById('library');
         const card = document.createElement('div');
-
-        /* set card id to books position in library */
-        card.setAttribute('id', `book${myLibrary.indexOf(book)}`);
-
         const bookInfo = document.createElement('div');
         const bookText = document.createTextNode(book.info());
         bookInfo.appendChild(bookText);
