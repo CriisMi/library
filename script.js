@@ -24,6 +24,7 @@ function addBookToLibrary(newBook) {
 
 /* display library books */
 const displayBooks = () => {
+    const cards = document.createElement('div');
     myLibrary.forEach(book => {
         const library = document.getElementById('library');
         const card = document.createElement('div');
@@ -32,8 +33,9 @@ const displayBooks = () => {
         bookInfo.appendChild(bookText);
         card.appendChild(bookInfo);
         deleteBtn(card);
-        statusBtn(card, book);
-        library.appendChild(card);
+        statusBtn(card, book, cards);
+        cards.appendChild(card);
+        library.appendChild(cards);
     })
 };
 
@@ -50,15 +52,15 @@ function deleteBtn(card) {
 };
 
 /* change read status btn to card */
-function statusBtn(card, book) {
+function statusBtn(card, book, cards) {
     const statBtn = document.createElement('button');
     const statBtnText = document.createTextNode('Change Status');
     statBtn.appendChild(statBtnText);
     card.appendChild(statBtn);
 
     statBtn.addEventListener('click', () => {
+        cards.remove();
         book.changeStat();
-        console.log(book.read);
         displayBooks();
     })
 }
