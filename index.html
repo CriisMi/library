@@ -15,33 +15,32 @@
         </div>
         <div id="library">
         </div>
-        <div class="new-form">
+        <div>
             <button id="addBook">NEW BOOK</button>
             <form action="" id="form" style="display: none;">
-                <div class="form-body">
-                    <div class="form-title">
+                <div class="form-sub">
+                    <div class="form-row">
                         <label for="title">Book title:</label>
                         <input type="text" id="title" name="title" required>
                     </div>
-                    <div class="form-author">
+                    <div class="form-row">
                         <label for="author">Book author:</label>
                         <input type="text" id="author" name="author" required>
                     </div>
-                    <div class="form-pages">
+                    <div class="form-row">
                         <label for="pages">Number of pages:</label>
                         <input type="number" id="pages" name="pages" required>
                     </div>
-                    <div class="form-read">
-                        <p>Status</p>
-                        <input type="radio" id="yes" name="read">
-                        <label for="yes">Read</label>
-                        <input type="radio" id="no" name="read" checked>
-                        <label for="no">Not read</label>
-                    </div>
+                    <fieldset class="legacy-form-row">
+                        <legend>Status:</legend>
+                        <input type="radio" id="yes" name="read" value='true'>
+                        <label for="yes" class="radio-label">Read</label>
+                        <input type="radio" id="no" name="read" value='false' checked>
+                        <label for="no" class="radio-label">Not read</label>
+                    </fieldset>
+                            <div class="form-row"><button>Submit</button></div>
                 </div>
-                <button type="submit" value="Submit" id="submit">Submit</button>
             </form>
-            
         </div>
     </div>
     

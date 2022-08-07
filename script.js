@@ -38,8 +38,8 @@ const displayBooks = () => {
         const btnCard = document.createElement('div');
         card.appendChild(btnCard);
         btnCard.setAttribute('class', 'btnCard');
-        
-        deleteBtn(btnCard);
+
+        deleteBtn(card, btnCard);
         statusBtn(btnCard, book, cards);
         cards.appendChild(card);
         library.appendChild(cards);
@@ -47,7 +47,7 @@ const displayBooks = () => {
 };
 
 /* delete btn to card */
-function deleteBtn(btnCard) {
+function deleteBtn(card, btnCard) {
     const delBtn = document.createElement('button');
     const delBtnText = document.createTextNode('Remove')
     delBtn.appendChild(delBtnText);
