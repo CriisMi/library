@@ -9,35 +9,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="library">
-    <p>Library</p>
-
-    </div>
-    <form action="" id="form" style="display: none;">
-        <div class="form-body">
-            <div class="form-title">
-                <label for="title">Book title:</label>
-                <input type="text" id="title" name="title">
-            </div>
-            <div class="form-author">
-                <label for="author">Book author:</label>
-                <input type="text" id="author" name="author">
-            </div>
-            <div class="form-pages">
-                <label for="pages">Number of pages:</label>
-                <input type="number" id="pages" name="pages">
-            </div>
-            <div class="form-read">
-                <p>Status</p>
-                <input type="radio" id="yes" name="read">
-                <label for="yes">Read</label>
-                <input type="radio" id="no" name="read">
-                <label for="no">Not read</label>
-            </div>
+    <div class="all">
+        <div class="header">
+            <h1>Library</h1>
         </div>
-        <button type="submit" value="Submit" id="submit">Submit</button>
-    </form>
-    <button id="addBook">NEW BOOK</button>
+        <div id="library">
+        </div>
+        <div class="new-form">
+            <button id="addBook">NEW BOOK</button>
+            <form action="" id="form" style="display: none;">
+                <div class="form-body">
+                    <div class="form-title">
+                        <label for="title">Book title:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    <div class="form-author">
+                        <label for="author">Book author:</label>
+                        <input type="text" id="author" name="author" required>
+                    </div>
+                    <div class="form-pages">
+                        <label for="pages">Number of pages:</label>
+                        <input type="number" id="pages" name="pages" required>
+                    </div>
+                    <div class="form-read">
+                        <p>Status</p>
+                        <input type="radio" id="yes" name="read">
+                        <label for="yes">Read</label>
+                        <input type="radio" id="no" name="read" checked>
+                        <label for="no">Not read</label>
+                    </div>
+                </div>
+                <button type="submit" value="Submit" id="submit">Submit</button>
+            </form>
+            
+        </div>
+    </div>
     
 </body>
 </html>
